@@ -4,7 +4,7 @@
       type="text"
       class="form-control my-3"
       placeholder="Ingrese tarea"
-      v-model="texto"
+      v-model.trim="texto"
     />
   </form>
 </template>
@@ -18,7 +18,18 @@ export default {
     const texto = ref("");
 
     const formulario = () => {
-      console.log(texto.value);
+      if (texto.value === "") {
+        console.log("Esta vacio");
+        return;
+      }
+
+      const todo = {
+        texto: texto.value,
+        estado: false,
+        id: Date.now(),
+      };
+      todos.value.push(todo);
+      texto.value = "";
     };
     return { formulario, texto };
   },
