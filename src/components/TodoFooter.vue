@@ -1,5 +1,7 @@
 <template>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <li
+    class="ModoColor list-group-item d-flex justify-content-between align-items-center"
+  >
     <span role="button"> {{ contarActivos }} Activos</span>
     <span role="button" @click="eliminarCompletados">
       Eliminar Completados

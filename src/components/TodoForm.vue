@@ -2,7 +2,7 @@
   <form @submit.prevent="formulario">
     <input
       type="text"
-      class="form-control my-3"
+      class="form-control my-3 ModoColor"
       placeholder="Ingrese tarea"
       v-model.trim="texto"
     />
