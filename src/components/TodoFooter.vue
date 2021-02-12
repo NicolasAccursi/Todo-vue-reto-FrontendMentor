@@ -2,6 +2,10 @@
   <li
     class="ModoColor list-group-item d-flex justify-content-between align-items-center"
   >
+    <todo-item-activo v-slot="slotProps">
+      {{ slotProps.activos }} Activos
+    </todo-item-activo>
+
     <span role="button"> {{ contarActivos }} Activos</span>
     <span role="button" @click="eliminarCompletados">
       Eliminar Completados
@@ -10,21 +14,9 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
+import TodoItemActivo from "./TodoItemActivo.vue";
+
 export default {
-  setup() {
-    const todos = inject("todos");
-
-    const contarActivos = computed(() => {
-      return todos.value.filter((item) => item.estado === false).length;
-    });
-    const eliminarCompletados = () => {
-      todos.value = todos.value.filter((item) => item.estado === false);
-    };
-
-    return { contarActivos, eliminarCompletados };
-  },
+  components: { TodoItemActivo },
 };
 </script>
-
-<style></style>
