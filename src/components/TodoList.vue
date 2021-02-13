@@ -2,9 +2,11 @@
   <ul class="list-group">
     <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
     <TodoFooter v-if="todos.length !== 0" />
-    <li v-else class="list-group-item">No hay ToDos</li>
+    <li v-if="todos.length === 0 && !mobile" class="list-group-item">
+      No hay ToDos
+    </li>
   </ul>
-  <todo-filtro />
+  <TodoFiltro v-if="mobile" />
 </template>
 
 <script>
@@ -16,6 +18,7 @@ export default {
   components: { TodoItem, TodoFooter, TodoFiltro },
   setup() {
     const todosOriginal = inject("todos");
+    const mobile = inject("mobile");
 
     const estado = ref("all");
 
@@ -34,7 +37,7 @@ export default {
     });
 
     provide("estado", estado);
-    return { todos };
+    return { todos, mobile };
   },
 };
 </script>
