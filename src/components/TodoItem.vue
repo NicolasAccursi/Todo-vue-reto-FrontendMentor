@@ -1,6 +1,6 @@
 <template>
   <li
-    class="ModoColor list-group-item d-flex justify-content-between align-items-center"
+    class="itemdrag ModoColor list-group-item d-flex justify-content-between align-items-center"
   >
     <span
       :class="{ tachado: todo.estado }"

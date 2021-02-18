@@ -1,8 +1,13 @@
 <template>
   <div :class="{ Dark: !light }">
-
     <img
-      :src="require('../assets/images/bg-'+ (mobile ? 'mobile': 'desktop')  + '-' +  (light ? 'dark': 'light')+ '.jpg')"
+      :src="
+        require('../assets/images/bg-' +
+          (mobile ? 'mobile' : 'desktop') +
+          '-' +
+          (light ? 'dark' : 'light') +
+          '.jpg')
+      "
       class="img-fluid"
       alt="Responsive image"
     />
@@ -41,23 +46,29 @@ export default {
     provide("mobile", mobile);
 
     const cambiaModo = () => {
-      if (light.value) document.body.className = "bodyDark";
-      else document.body.className = "";
-
       light.value = !light.value;
     };
 
     if (localStorage.getItem("todos")) {
       todos.value = JSON.parse(localStorage.getItem("todos"));
     }
+
+    if (localStorage.getItem("modo")) {
+      if (localStorage.getItem("modo") === "false") light.value = false;
+    }
+
     watchEffect(() => {
       localStorage.setItem("todos", JSON.stringify(todos.value));
+      localStorage.setItem("modo", light.value);
 
       if (width.value <= 700) {
         mobile.value = true;
       } else {
         mobile.value = false;
       }
+
+      if (!light.value) document.body.className = "bodyDark";
+      else document.body.className = "";
     });
 
     return { todos, light, cambiaModo, mobile };
@@ -101,6 +112,4 @@ img {
 small {
   color: var(--Dark-Grayish-Blue);
 }
-
-
 </style>
