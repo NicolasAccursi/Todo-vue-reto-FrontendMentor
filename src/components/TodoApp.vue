@@ -13,7 +13,7 @@
     />
 
     <div class="mt-5 d-flex justify-content-between align-items-center">
-      <h1>cambiando esto</h1>
+      <h1>cambiando</h1>
       <span role="button" @click="cambiaModo">
         <i id="IconoModo" :class="light ? 'fas fa-moon' : 'fas fa-sun'"></i
       ></span>
