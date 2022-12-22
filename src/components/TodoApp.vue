@@ -12,8 +12,8 @@
       alt="Responsive image"
     />
 
-    <div class="mt-5 d-flex justify-content-between align-items-center ">
-      <h1>TODO</h1>
+    <div class="mt-5 d-flex justify-content-between align-items-center">
+      <h1>cambiando esto</h1>
       <span role="button" @click="cambiaModo">
         <i id="IconoModo" :class="light ? 'fas fa-moon' : 'fas fa-sun'"></i
       ></span>
@@ -29,51 +29,51 @@
 </template>
 
 <script>
-import { provide, ref, watchEffect } from "vue";
-import TodoForm from "./TodoForm.vue";
-import TodoList from "./TodoList.vue";
-import { useWindowSize } from "vue-window-size";
+import { provide, ref, watchEffect } from 'vue'
+import TodoForm from './TodoForm.vue'
+import TodoList from './TodoList.vue'
+import { useWindowSize } from 'vue-window-size'
 export default {
   components: { TodoForm, TodoList },
   setup() {
-    const todos = ref([]);
-    const light = ref(true);
-    const mobile = ref();
-    const { width, height } = useWindowSize();
+    const todos = ref([])
+    const light = ref(true)
+    const mobile = ref()
+    const { width, height } = useWindowSize()
 
-    provide("todos", todos);
-    provide("light", light);
-    provide("mobile", mobile);
+    provide('todos', todos)
+    provide('light', light)
+    provide('mobile', mobile)
 
     const cambiaModo = () => {
-      light.value = !light.value;
-    };
-
-    if (localStorage.getItem("todos")) {
-      todos.value = JSON.parse(localStorage.getItem("todos"));
+      light.value = !light.value
     }
 
-    if (localStorage.getItem("modo")) {
-      if (localStorage.getItem("modo") === "false") light.value = false;
+    if (localStorage.getItem('todos')) {
+      todos.value = JSON.parse(localStorage.getItem('todos'))
+    }
+
+    if (localStorage.getItem('modo')) {
+      if (localStorage.getItem('modo') === 'false') light.value = false
     }
 
     watchEffect(() => {
-      localStorage.setItem("todos", JSON.stringify(todos.value));
-      localStorage.setItem("modo", light.value);
+      localStorage.setItem('todos', JSON.stringify(todos.value))
+      localStorage.setItem('modo', light.value)
 
       if (width.value <= 700) {
-        mobile.value = true;
+        mobile.value = true
       } else {
-        mobile.value = false;
+        mobile.value = false
       }
 
-      if (!light.value) document.body.className = "bodyDark";
-      else document.body.className = "";
-    });
+      if (!light.value) document.body.className = 'bodyDark'
+      else document.body.className = ''
+    })
 
-    return { todos, light, cambiaModo, mobile };
-  },
-};
+    return { todos, light, cambiaModo, mobile }
+  }
+}
 </script>
 
 <style>
