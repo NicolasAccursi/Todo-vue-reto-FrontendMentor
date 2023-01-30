@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import TodoApp from "./components/TodoApp.vue";
+import TodoApp from './components/TodoApp.vue'
 
 export default {
   components: { TodoApp },
-  name: "App",
-};
+  name: 'App'
+}
 </script>
 
 <style>
@@ -38,7 +38,7 @@ export default {
 }
 
 body {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 18px;
 }
 
