@@ -3,17 +3,17 @@
 </template>
 
 <script>
-import TodoApp from './components/TodoApp.vue'
+import TodoApp from "./components/TodoApp.vue";
 
 export default {
   components: { TodoApp },
-  name: 'App'
-}
+  name: "App",
+};
 </script>
 
 <style>
 :root {
-  --Bright-Blue: hsl(295, 98%, 61%);
+  --Bright-Blue: hsl(220, 98%, 61%);
   --Check-Background: -webkit-gradient(
     linear,
     left top,
@@ -38,7 +38,7 @@ export default {
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
 }
 
