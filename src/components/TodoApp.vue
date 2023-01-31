@@ -42,9 +42,12 @@ export default {
 
     const cambiaModo = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
       light.value = !light.value
     }
 =======
+=======
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
       if (light.value) document.body.className = "bodyDark";
       else document.body.className = "";
 
@@ -56,17 +59,23 @@ export default {
       todos.value = JSON.parse(localStorage.getItem('todos'))
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (localStorage.getItem('modo')) {
       if (localStorage.getItem('modo') === 'false') light.value = false
     }
 
+=======
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
     watchEffect(() => {
       localStorage.setItem('todos', JSON.stringify(todos.value))
       localStorage.setItem('modo', light.value)
 =======
     watchEffect(() => {
       localStorage.setItem("todos", JSON.stringify(todos.value));
+<<<<<<< HEAD
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
+=======
 >>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
 
       if (width.value <= 700) {
@@ -75,11 +84,14 @@ export default {
         mobile.value = false
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       if (!light.value) document.body.className = 'bodyDark'
       else document.body.className = ''
     })
 =======
+=======
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
     });
 >>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
 
