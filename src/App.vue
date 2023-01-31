@@ -13,7 +13,7 @@ export default {
 
 <style>
 :root {
-  --Bright-Blue: hsl(295, 98%, 61%);
+  --Bright-Blue: hsl(220, 98%, 61%);
   --Check-Background: -webkit-gradient(
     linear,
     left top,
