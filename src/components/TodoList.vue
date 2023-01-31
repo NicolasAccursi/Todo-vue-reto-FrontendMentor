@@ -1,19 +1,11 @@
 <template>
-  <draggable
-    tag="ul"
-    class="list-group"
-    draggable=".itemdrag"
-    :animation="100"
-    @start="dragging = true"
-    @end="dragging = false"
-    :list="todos"
-  >
+  <ul class="list-group">
     <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
-    <li v-if="todos.length === 0" class="list-group-item ModoColor">
+    <TodoFooter v-if="todos.length !== 0" />
+    <li v-if="todos.length === 0 && !mobile" class="list-group-item">
       No hay ToDos
     </li>
-    <TodoFooter v-if="todos.length !== 0 || estado === 'completados'" />
-  </draggable>
+  </ul>
   <TodoFiltro v-if="mobile" />
 </template>
 
@@ -22,9 +14,8 @@ import { computed, inject, provide, ref } from "vue";
 import TodoItem from "./TodoItem.vue";
 import TodoFooter from "./TodoFooter.vue";
 import TodoFiltro from "./TodoFiltro.vue";
-import { VueDraggableNext } from "vue-draggable-next";
 export default {
-  components: { TodoItem, TodoFooter, TodoFiltro, draggable: VueDraggableNext },
+  components: { TodoItem, TodoFooter, TodoFiltro },
   setup() {
     const todosOriginal = inject("todos");
     const mobile = inject("mobile");
@@ -46,7 +37,7 @@ export default {
     });
 
     provide("estado", estado);
-    return { todos, mobile, estado };
+    return { todos, mobile };
   },
 };
 </script>

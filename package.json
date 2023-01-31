@@ -9,7 +9,6 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
-    "vue-draggable-next": "^2.0.1",
     "vue-window-size": "^1.0.3"
   },
   "devDependencies": {

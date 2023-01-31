@@ -1,13 +1,8 @@
 <template>
   <div :class="{ Dark: !light }">
+
     <img
-      :src="
-        require('../assets/images/bg-' +
-          (mobile ? 'mobile' : 'desktop') +
-          '-' +
-          (light ? 'dark' : 'light') +
-          '.jpg')
-      "
+      :src="require('../assets/images/bg-'+ (mobile ? 'mobile': 'desktop')  + '-' +  (light ? 'dark': 'light')+ '.jpg')"
       class="img-fluid"
       alt="Responsive image"
     />
@@ -46,12 +41,21 @@ export default {
     provide('mobile', mobile)
 
     const cambiaModo = () => {
+<<<<<<< HEAD
       light.value = !light.value
     }
+=======
+      if (light.value) document.body.className = "bodyDark";
+      else document.body.className = "";
+
+      light.value = !light.value;
+    };
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
 
     if (localStorage.getItem('todos')) {
       todos.value = JSON.parse(localStorage.getItem('todos'))
     }
+<<<<<<< HEAD
 
     if (localStorage.getItem('modo')) {
       if (localStorage.getItem('modo') === 'false') light.value = false
@@ -60,16 +64,24 @@ export default {
     watchEffect(() => {
       localStorage.setItem('todos', JSON.stringify(todos.value))
       localStorage.setItem('modo', light.value)
+=======
+    watchEffect(() => {
+      localStorage.setItem("todos", JSON.stringify(todos.value));
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
 
       if (width.value <= 700) {
         mobile.value = true
       } else {
         mobile.value = false
       }
+<<<<<<< HEAD
 
       if (!light.value) document.body.className = 'bodyDark'
       else document.body.className = ''
     })
+=======
+    });
+>>>>>>> parent of 9ffe25e... agrego modo en LocalStorage y correcciones. Trabajo terminado
 
     return { todos, light, cambiaModo, mobile }
   }
@@ -112,4 +124,6 @@ img {
 small {
   color: var(--Dark-Grayish-Blue);
 }
+
+
 </style>
